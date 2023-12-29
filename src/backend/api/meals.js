@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const knex = require("../database");
 
-//Week- 3
 
 //Returns all meals that are cheaper than maxPrice. Data type Number. api/meals?maxPrice=90
 
