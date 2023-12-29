@@ -15,13 +15,13 @@ router.get('/all-reviews', async (req, res) => {
     });
   
 // /api/meals/:meal_id/reviews	GET	Returns all reviews for a specific meal.
+// Use this url for get request: http://localhost:5000/api/reviews/meals/1/reviews
+
 router.get("/meals/:meal_id/reviews", async (req, res) => {
     const { meal_id } = req.params;
   
     try {
-      // Retrieve all reviews for the specified meal_id
       const reviews = await knex("review").select("*").where({ meal_id });
-  
       res.json(reviews);
     } catch (error) {
       console.error(error);
@@ -35,7 +35,6 @@ router.get("/meals/:meal_id/reviews", async (req, res) => {
 router.post('/add-review', async (req, res) => {
     const addReview = req.body;
     addReview.created_date = new Date();
-
     try {
         await knex("review").insert(addReview);
         res.status(201).json("New review has been added");
