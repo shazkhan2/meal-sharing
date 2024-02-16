@@ -2,9 +2,12 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const path = require("path");
-
 const mealsRouter = require("./api/meals");
-const reviewsRouter = require("./api/reviews");
+const reservationsRouter = require("./api/reservations");
+//The body function has changed after version 15 while I am using 16. If put request doesnt work then install bodyparser
+//const bodyOarser = require("body-parser");
+//npm install --save body-parser
+
 
 const buildPath = path.join(__dirname, "../../dist");
 const port = process.env.PORT || 3000;
@@ -22,7 +25,7 @@ app.use(express.json());
 app.use(cors());
 
 router.use("/meals", mealsRouter);
-router.use("/reviews", reviewsRouter);
+router.use("/reservations", reservationsRouter);
 
 if (process.env.API_PATH) {
   app.use(process.env.API_PATH, router);
@@ -34,5 +37,6 @@ if (process.env.API_PATH) {
 app.use("*", (req, res) => {
   res.sendFile(path.join(`${buildPath}/index.html`));
 });
+
 
 module.exports = app;
