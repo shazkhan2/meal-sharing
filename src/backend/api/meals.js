@@ -14,7 +14,7 @@ router.get('/maxPrice', async (req, res) => {
       return res.status(400).json({ error: 'The maxPrice parameter accepts numbers only' });
     }
 
-    const cheaperMeals = await knex('meal').where('price', '<', maxPrice);
+    const cheaperMeals = await knex('Meal').where('price', '<', maxPrice);
 
     res.json(cheaperMeals);
   } catch (error) {
@@ -58,7 +58,7 @@ router.get('/title', async (req, res) => {
       return res.status(400).json({ error: 'The title parameter is required' });
     }
 
-    const titleMatch = await knex('meal').where('title', 'like', `%${title}%`);
+    const titleMatch = await knex('Meal').where('title', 'like', `%${title}%`);
 
     res.json(titleMatch);
   } catch (error) {
@@ -76,7 +76,7 @@ router.get('/dateAfter', async (req, res) => {
       return res.status(400).json({ error: 'The dateAfter parameter is required' });
     }
 
-    const lateMeals = await knex('meal').where('when', '>', dateAfter);
+    const lateMeals = await knex('Meal').where('when', '>', dateAfter);
 
     res.json(lateMeals);
   } catch (error) {
@@ -94,7 +94,7 @@ router.get('/dateBefore', async (req, res) => {
       return res.status(400).json({ error: 'The dateBefore parameter is required and must be a non-empty string' });
     }
 
-    const earlyMeals = await knex('meal').where('when', '<', dateBefore);
+    const earlyMeals = await knex('Meal').where('when', '<', dateBefore);
 
     res.json(earlyMeals);
   } catch (error) {
@@ -112,7 +112,7 @@ router.get('/limit', async (req, res) => {
       return res.status(400).json({ error: 'The limit parameter must be a positive number' });
     }
 
-    const limitedMeals = await knex('meal').select('*').limit(limit);
+    const limitedMeals = await knex('Meal').select('*').limit(limit);
 
     res.json(limitedMeals);
   } catch (error) {
@@ -134,7 +134,7 @@ router.get('/sortedMeals', async (req, res) => {
       return res.status(400).json({ error: 'Invalid sortKey parameter' });
     }
 
-    const sortedMeals = await knex('meal').orderBy(sortKey, sortDir);
+    const sortedMeals = await knex('Meal').orderBy(sortKey, sortDir);
 
     res.json(sortedMeals);
   } catch (error) {
@@ -161,7 +161,7 @@ router.get('/sort', async (req, res) => {
       return res.status(400).json({ error: 'Invalid sortKey parameter' });
     }
 
-    const sortedMeals = await knex('meal').orderBy(sortKey, sortDir || 'asc');
+    const sortedMeals = await knex('Meal').orderBy(sortKey, sortDir || 'asc');
 
     res.json(sortedMeals);
   } catch (error) {
@@ -177,7 +177,7 @@ router.get('/sort', async (req, res) => {
 router.get("/", async (request, response) => {
   try {
     // knex syntax for selecting things. Look up the documentation for knex for further info
-    const allMeals = await knex("meal").select("*");
+    const allMeals = await knex("Meal").select("*");
     response.json(allMeals);
   } catch (error) {
     throw error;
@@ -190,7 +190,7 @@ router.post("/", async (request, response) => {
   addMeal.created_date = new Date();
 
   try {
-    await knex("meal").insert(addMeal);
+    await knex("Meal").insert(addMeal);
     response.status(201).json("New meal has been added");
   } catch (error) {
     console.error(error); 
@@ -207,7 +207,7 @@ router.get("/:id", async (request, response) => {
 
   try {
     // knex syntax for selecting things. Look up the documentation for knex for further info
-    const meal = await knex("meal").select("*").where({ id }).first(); 
+    const meal = await knex("Meal").select("*").where({ id }).first(); 
     if (meal) {
       response.json(meal);
     } else {
@@ -226,7 +226,7 @@ router.put("/:id", async (request, response) => {
     const { id } = request.params;
     const updatedMeal = request.body;
 
-    const results = await knex("meal")
+    const results = await knex("Meal")
       .update(updatedMeal).where({ id });
 
     if (results) {
@@ -247,13 +247,13 @@ router.delete("/:id", async (request, response) => {
   try {
     const { id } = request.params;
 
-    const meal = await knex("meal").select("*").where({ id }).first();
+    const meal = await knex("Meal").select("*").where({ id }).first();
 
     if (!meal) {
       return response.status(404).json({ error: "Meal not found" });
     }
 
-    await knex("meal").where({ id }).del();
+    await knex("Meal").where({ id }).del();
 
     response.json({ message: "Meal deleted successfully" });
   } catch (error) {

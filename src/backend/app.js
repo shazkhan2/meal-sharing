@@ -5,7 +5,7 @@ const path = require("path");
 const mealsRouter = require("./api/meals");
 const reservationsRouter = require("./api/reservations");
 //The body function has changed after version 15 while I am using 16. If put request doesnt work then install bodyparser
-//const bodyOarser = require("body-parser");
+//const bodyParser = require("body-parser");
 //npm install --save body-parser
 
 
