@@ -39,7 +39,7 @@ router.get('/available', async (req, res) => {
     const isAvailable = availableReservations === 'true';
 
     // Use the boolean value in the query
-    const meals = await knex('reservation').where('number_of_guests', '<', isAvailable ? 0 : Number.MAX_VALUE);
+    const meals = await knex('Reservation').where('number_of_guests', '<', isAvailable ? 0 : Number.MAX_VALUE);
 
     res.json(meals);
   } catch (error) {
