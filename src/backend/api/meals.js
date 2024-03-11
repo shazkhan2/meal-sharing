@@ -35,10 +35,8 @@ router.get('/available', async (req, res) => {
       return res.status(400).json({ error: 'The availableReservations parameter accepts true or false only' });
     }
 
-    // Convert the string 'true' or 'false' to a boolean
     const isAvailable = availableReservations === 'true';
 
-    // Use the boolean value in the query
     const meals = await knex('Reservation').where('number_of_guests', '<', isAvailable ? 0 : Number.MAX_VALUE);
 
     res.json(meals);

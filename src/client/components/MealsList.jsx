@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Meal from "./Meal";
-import "../../styles/MealsList.css";
+import "../styles/MealsList.css";
 
 const MealsList = () => {
   const [meals, setMeals] = useState([]);

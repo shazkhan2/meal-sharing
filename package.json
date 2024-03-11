@@ -56,8 +56,8 @@
     "concurrently": "^7.0.0",
     "install-peers": "^1.0.3",
     "nodemon": "^2.0.15",
-    "sequelize-cli": "^6.4.1",
+    "sequelize-cli": "^6.4.1",  
     "webpack-dev-server": "^4.7.4"
   },
-  "main": "webpack.config.js"
+  "main": "webpack.config.cjs"
 }
