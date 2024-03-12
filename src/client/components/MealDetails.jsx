@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ReservationForm from "./ReservationForm";
 import ReviewForm from "./ReviewForm";
 import ReviewList from "./ReviewList";
@@ -11,8 +10,10 @@ function MealDetails({ match }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
   useEffect(() => {
     const mealId = match.params.id;
+    console.log("mealId", mealId)
 
     const fetchMealDetails = async () => {
       try {
@@ -24,9 +25,12 @@ function MealDetails({ match }) {
       }
     };
 
+    console.log("fetchMealDetails",fetchMealDetails )
+
+
     const fetchReviews = async () => {
       try {
-        const reviewsResponse = await fetch(`/api/reviews/${mealId}`);
+        const reviewsResponse = await fetch(`/api/reviews/meals/${mealId}/reviews`);
         const reviewsData = await reviewsResponse.json();
         setReviews(reviewsData);
       } catch (error) {
@@ -35,6 +39,7 @@ function MealDetails({ match }) {
         setLoading(false);
       }
     };
+    
 
     fetchMealDetails();
     fetchReviews();
@@ -44,12 +49,15 @@ function MealDetails({ match }) {
     return <div>Loading...</div>;
   }
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
   if (!meal) {
     return <div>Meal not found</div>;
+  }
+  if (!reviews) {
+    return <div>Review not found</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
   }
 
   return (

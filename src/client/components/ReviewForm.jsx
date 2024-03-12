@@ -7,7 +7,7 @@ function ReviewForm({ mealId, mealTitle }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/reviews", {
+      const response = await fetch("/api/reviews/add-review", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

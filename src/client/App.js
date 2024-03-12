@@ -14,9 +14,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <div className="home-page">
-            <h1>Meal Sharing App</h1>
+            <h1>Your gate way to the world of fine dining</h1>
             <div className="meals-preview">
-              <h3>Some of Our Meals:</h3>
+              <h3>Here are some meals to whet your apetite:</h3>
               <MealsPreview />
             </div>
             <Link to="/meals" className="see-more-link">
