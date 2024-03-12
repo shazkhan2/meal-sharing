@@ -1,0 +1,31 @@
+.meal-card {
+    background-color: #fde047;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.meal-card:hover {
+    background-color: #facc15;
+}
+
+.meals-preview-list {
+    display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+  grid-gap: 10px; 
+}
+
+.meals-preview-list > * {
+    width: 100%;
+    height: 100%;
+  }
+
+  .meals-preview {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .see-more-link {
+    margin-top: 2rem;
+  }

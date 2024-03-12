@@ -1,29 +1,16 @@
 import React from "react";
+import ("../styles/Header.css")
 function Header() {
     return (
-      <header style={headerStyle}>
-        <div style={logoStyle}>🍖</div>
-        <h2 style={titleStyle}>Meal-Sharing</h2>
+      <header className="header">
+        <div className="overlay">
+
+        
+        <h2>Meal-Sharing</h2>
+        </div>
       </header>
     );
   }
-  
-  const headerStyle = {
-    width: "100%",
-    backgroundColor: "#f2f2f2",
-    padding: "20px",
-    borderBottom: "1px solid #ccc",
-    display: "flex",
-    flexDirection: "column",
-  };
-  
-  const logoStyle = {
-    fontSize: "36px",
-  };
-  
-  const titleStyle = {
-    fontSize: "16px",
-    margin: "5px 0 0 0",
-  };
+
   
   export default Header;

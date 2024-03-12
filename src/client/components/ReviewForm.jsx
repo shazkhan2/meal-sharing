@@ -33,7 +33,7 @@ function ReviewForm({ mealId, mealTitle }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="review-form">
       <label>
         Rating:
         <input

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Meal from "./Meal";
 import { useLocation } from "react-router-dom";
+import "../styles/MealsStyles.css"
 
 function MealsPreview() {
   const [meals, setMeals] = useState([]);

@@ -1,0 +1,27 @@
+.meal-details{
+    padding: 1rem;
+}
+
+.reservation-form {
+    margin: auto;
+    background-color: bisque;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+.review-form {
+    margin: auto;
+    background-color:#a5f3fc    ;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.reservation-form > *, .review-form > * {
+    padding-bottom: 1rem;
+}
+
+

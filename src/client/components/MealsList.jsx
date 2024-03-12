@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Meal from "./Meal";
-import "../styles/MealsList.css";
+import "../styles/MealsStyles.css";
 
 const MealsList = () => {
   const [meals, setMeals] = useState([]);

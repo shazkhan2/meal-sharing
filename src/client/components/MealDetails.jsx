@@ -10,7 +10,6 @@ function MealDetails({ match }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-
   useEffect(() => {
     const mealId = match.params.id;
     console.log("mealId", mealId)
@@ -68,8 +67,7 @@ function MealDetails({ match }) {
 
       {meal.max_reservations > 0 && (
         <div className="form-container">
-          <ReservationForm mealId={meal.id} />
-          <hr />
+          <ReservationForm mealId={meal.id}  />
           <ReviewForm mealId={meal.id} mealTitle={meal.title} />
         </div>
       )}

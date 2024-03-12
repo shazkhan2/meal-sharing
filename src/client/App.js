@@ -4,7 +4,7 @@ import MealsList from "./components/MealsList";
 import Header from "./components/Header";
 import MealDetails from "./components/MealDetails";
 import MealsPreview from "./components/MealsPreview";
-
+import "./App.css";
 
 
 function App() {
@@ -15,13 +15,15 @@ function App() {
         <Route exact path="/">
           <div className="home-page">
             <h1>Your gate way to the world of fine dining</h1>
+            <h3>Here are some meals to whet your apetite:</h3>
             <div className="meals-preview">
-              <h3>Here are some meals to whet your apetite:</h3>
+              
               <MealsPreview />
-            </div>
-            <Link to="/meals" className="see-more-link">
+              <Link to="/meals" className="see-more-link">
               See More
             </Link>
+            </div>
+            
           </div>
         </Route>
         <Route exact path="/meals" component={MealsList} />

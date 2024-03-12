@@ -39,7 +39,7 @@ function ReservationForm({ mealId }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="reservation-form">
       <div>
         <label>Name:</label>
         <input
