@@ -5,7 +5,7 @@ const knex = require("../database");
 // GET - Returns all reservations
 router.get("/", async (request, response) => {
   try {
-    const allReservations = await knex("Reservation").select("*");
+    const allReservations = await knex("reservations").select("*");
     response.json(allReservations);
   } catch (error) {
     console.error(error);
@@ -19,7 +19,7 @@ router.post("/", async (request, response) => {
   addReservation.created_date = new Date();
 
   try {
-    await knex("Reservation").insert(addReservation);
+    await knex("reservations").insert(addReservation);
     response.status(201).json("New reservation has been added");
   } catch (error) {
     console.error(error);
@@ -32,7 +32,7 @@ router.get("/:id", async (request, response) => {
   const { id } = request.params;
 
   try {
-    const reservation = await knex("Reservation").select("*").where({ id }).first();
+    const reservation = await knex("reservations").select("*").where({ id }).first();
     if (reservation) {
       response.json(reservation);
     } else {
@@ -49,10 +49,10 @@ router.put("/:id", async (request, response) => {
   const { id } = request.params;
 
   try {
-    const reservation = await knex("Reservation").select("*").where({ id }).first();
+    const reservation = await knex("reservations").select("*").where({ id }).first();
     if (reservation) {
       const updatedReservation = request.body;
-      const results = await knex("Reservation").update(updatedReservation).where({ id });
+      const results = await knex("reservations").update(updatedReservation).where({ id });
       if (results) {
         return response.json({ message: "Reservation updated successfully" });
       } else {
@@ -72,12 +72,12 @@ router.delete("/:id", async (request, response) => {
   const { id } = request.params;
 
   try {
-    const reservation = await knex("Reservation").select("*").where({ id }).first();
+    const reservation = await knex("reservations").select("*").where({ id }).first();
     if (!Reservation) {
       return response.status(404).json({ error: "Reservation not found" });
     }
 
-    await knex("Reservation").where({ id }).del();
+    await knex("reservations").where({ id }).del();
     response.json({ message: "Reservation deleted successfully" });
   } catch (error) {
     console.error(error);

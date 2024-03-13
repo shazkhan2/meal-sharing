@@ -5,7 +5,7 @@ const knex = require("../database");
 // Returns all reviews.
 router.get('/all-reviews', async (req, res) => {
     try {
-        const allReviews = await knex("Review").select("*");
+        const allReviews = await knex("reviews").select("*");
         res.json(allReviews);
     } catch (error) {
         console.error(error);
@@ -19,7 +19,7 @@ router.get("/meals/:meal_id/reviews", async (req, res) => {
 
     try {
         console.log("Fetching reviews for meal ID:", meal_id);
-        const reviews = await knex("Review").select("*").where({ meal_id });
+        const reviews = await knex("reviews").select("*").where({ meal_id });
         res.json(reviews);
     } catch (error) {
         console.error(error);
@@ -32,7 +32,7 @@ router.post('/add-review', async (req, res) => {
     const addReview = req.body;
     addReview.created_date = new Date();
     try {
-        await knex("Review").insert(addReview);
+        await knex("reviews").insert(addReview);
         res.status(201).json("New review has been added");
     } catch (error) {
         console.error(error);
@@ -45,7 +45,7 @@ router.get("/:id", async (req, res) => {
     const { id } = req.params;
 
     try {
-        const review = await knex("Review").select("*").where({ id }).first();
+        const review = await knex("reviews").select("*").where({ id }).first();
         if (review) {
             res.json(review);
         } else {
@@ -63,12 +63,12 @@ router.put("/:id", async (req, res) => {
     const updatedReview = req.body;
 
     try {
-        const existingReview = await knex("Review").select("*").where({ id }).first();
+        const existingReview = await knex("reviews").select("*").where({ id }).first();
         if (!existingReview) {
             return res.status(404).json({ error: "Review not found" });
         }
 
-        await knex("Review").where({ id }).update(updatedReview);
+        await knex("reviews").where({ id }).update(updatedReview);
 
         res.json({ message: "Review updated successfully" });
     } catch (error) {
@@ -82,12 +82,12 @@ router.delete("/:id", async (req, res) => {
     const { id } = req.params;
 
     try {
-        const review = await knex("Review").select("*").where({ id }).first();
+        const review = await knex("reviews").select("*").where({ id }).first();
         if (!review) {
             return res.status(404).json({ error: "Review not found" });
         }
 
-        await knex("Review").where({ id }).del();
+        await knex("reviews").where({ id }).del();
         res.json({ message: "Review deleted successfully" });
     } catch (error) {
         console.error(error);
