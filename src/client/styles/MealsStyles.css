@@ -10,7 +10,7 @@
 
 .meals-preview-list {
     display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+  grid-template-columns: repeat(2, 1fr); 
   grid-gap: 10px; 
 }
 
@@ -28,4 +28,5 @@
 
   .see-more-link {
     margin-top: 2rem;
+    font-weight: bold;
   }

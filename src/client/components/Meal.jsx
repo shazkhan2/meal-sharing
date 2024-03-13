@@ -9,7 +9,7 @@ const Meal = ({ meal }) => {
       <div className="meal-card">
         <h3>{meal.title}</h3>
         <p>{meal.description}</p>
-        <p>Price: ${meal.price}</p>
+        <p>Price: Kr. {meal.price}</p>
       </div>
     </Link>
   );

@@ -20,8 +20,63 @@
     max-width: 600px;
 }
 
+.reservation-form label {
+  display: inline-block;
+  width: 30%; 
+  margin-bottom: 0.5rem;
+  margin-right: 1.5rem;
+  text-align: right;
+}
+
+.reservation-form label {
+  display: inline-block;
+  width: 30%; 
+  margin-bottom: 0.5rem;
+  margin-right: 1.5rem;
+  text-align: right;
+}
+
+.rating-label,
+.comment-label {
+    margin-bottom: 0.5rem;
+    margin-right: 2.5rem;
+    text-align: left;
+  }
+  
+
+
+
 .reservation-form > *, .review-form > * {
     padding-bottom: 1rem;
 }
 
 
+.reservation-form button:hover,
+.review-form button:hover {
+  cursor: pointer;
+}
+
+.reservation-form button {
+  width: 30%; 
+  padding: 0.5rem; 
+  cursor: pointer;
+  background-color: #a5f3fc ;
+  border: none;
+  outline: none;
+  color: black;
+  text-align: center; 
+  margin: auto;
+
+}
+.review-form button {
+    width: 30%; 
+    padding: 0.5rem; 
+    cursor: pointer;
+    background-color: bisque ;
+    border: none;
+    outline: none;
+    color: black;
+    text-align: center; 
+    margin: auto;
+
+  }

@@ -34,7 +34,7 @@ function ReviewForm({ mealId, mealTitle }) {
 
   return (
     <form onSubmit={handleSubmit} className="review-form">
-      <label>
+      <label className="rating-label">
         Rating:
         <input
           type="number"
@@ -42,7 +42,7 @@ function ReviewForm({ mealId, mealTitle }) {
           onChange={(e) => setRating(e.target.value)}
         />
       </label>
-      <label>
+      <label className="comment-label">
         Comment:
         <textarea
           value={comment}

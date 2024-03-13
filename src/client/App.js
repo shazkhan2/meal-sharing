@@ -20,7 +20,7 @@ function App() {
               
               <MealsPreview />
               <Link to="/meals" className="see-more-link">
-              See More
+              See More ...
             </Link>
             </div>
             

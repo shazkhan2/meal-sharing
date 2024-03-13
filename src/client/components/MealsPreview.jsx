@@ -17,7 +17,7 @@ function MealsPreview() {
   return (
     <div className="meals-preview-list">
       {meals.map((meal, index) => {
-        if (location.pathname === "/" && index >= 3) {
+        if (location.pathname === "/" && index >= 4) {
           return null;
         }
         return <Meal key={meal.id} meal={meal} />;
