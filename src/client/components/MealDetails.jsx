@@ -24,8 +24,7 @@ function MealDetails({ match }) {
       }
     };
 
-    console.log("fetchMealDetails",fetchMealDetails )
-
+    console.log("fetchMealDetails", fetchMealDetails)
 
     const fetchReviews = async () => {
       try {
@@ -38,7 +37,6 @@ function MealDetails({ match }) {
         setLoading(false);
       }
     };
-    
 
     fetchMealDetails();
     fetchReviews();
@@ -51,6 +49,7 @@ function MealDetails({ match }) {
   if (!meal) {
     return <div>Meal not found</div>;
   }
+
   if (!reviews) {
     return <div>Review not found</div>;
   }
@@ -65,12 +64,16 @@ function MealDetails({ match }) {
       <p>{meal.description}</p>
       <p>Price: ${meal.price}</p>
 
-      {meal.max_reservations > 0 && (
-        <div className="form-container">
-          <ReservationForm mealId={meal.id}  />
-          <ReviewForm mealId={meal.id} mealTitle={meal.title} />
-        </div>
-      )}
+      <div className="form-container">
+        {meal.reservations >= meal.max_reservations ? (
+          <p>No more reservations available for this meal.</p>
+        ) : (
+          <>
+            <ReservationForm mealId={meal.id} maxReservations={meal.max_reservations} />
+            <ReviewForm mealId={meal.id} mealTitle={meal.title} />
+          </>
+        )}
+      </div>
 
       <ReviewList reviews={reviews} />
     </div>
