@@ -62,7 +62,7 @@ function MealDetails({ match }) {
     <div className="meal-details">
       <h2>{meal.title}</h2>
       <p>{meal.description}</p>
-      <p>Price: ${meal.price}</p>
+      <p>Price: kr. {meal.price}</p>
 
       <div className="form-container">
         {meal.reservations >= meal.max_reservations ? (
