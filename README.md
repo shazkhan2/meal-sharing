@@ -19,8 +19,10 @@ The biggest challenge was finding workarounds for errors to do with file system 
 
 Then there was the logic of getting data using ternary operator. Equally important was mastery of CSS as I wanted to render the review and reservation forms using CSS and not a JS event listener. I am going to find a better solution for that.
 
-I also learned that I should manage my time better, define the design clearly and create mokeups to visualise the app. For this app my objective was to it make work and to deploy it but I have already planned what I need to learn more of. 
+I also learned that I should manage my time better, define the design clearly and create mokeups to visualise the app. For this app my objective was to make it work and to deploy it but I have already planned what I need to learn more of. 
 
-![alt text](image.png)
+## Screen shots
+
 ![alt text](image-1.png)
 ![alt text](image-2.png)
+![alt text](image.png)
