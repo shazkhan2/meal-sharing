@@ -1,16 +1,17 @@
 import React from "react";
-import ("../styles/Header.css")
+import { Link } from "react-router-dom";
+import "../styles/Header.css";
+
 function Header() {
-    return (
-      <header className="header">
+  return (
+    <header className="header">
+      <Link to="/" className="header-link">
         <div className="overlay">
-
-        
-        <h2>Meal-Sharing</h2>
+          <h2>Share My Meal</h2>
         </div>
-      </header>
-    );
-  }
+      </Link>
+    </header>
+  );
+}
 
-  
-  export default Header;
+export default Header;
