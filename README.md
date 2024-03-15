@@ -21,7 +21,8 @@ Then there was the logic of getting data using ternary operator. Equally importa
 
 I also learned that I should manage my time better, define the design clearly and create mokeups to visualise the app. For this app my objective was to make it work and to deploy it but I have already planned what I need to learn more of. 
 
-## Screen shots
+## Screen shots and a short video
+https://www.loom.com/share/24d4b3d2b9ec4e6d97d60370bad91589
 
 ![alt text](image-1.png)
 ![alt text](image-2.png)
