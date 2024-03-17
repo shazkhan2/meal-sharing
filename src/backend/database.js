@@ -2,7 +2,7 @@ require("dotenv").config();
 
 // create connection
 const knex = require("knex")({
-  client: "postgres", // We basically need to change the client that we are using to postgres
+  client: "postgres", 
   connection: {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -20,7 +20,7 @@ const knex = require("knex")({
 
 // Check that the connection works
 knex.raw("SELECT VERSION()").then(() => {
-  console.log(`Welldone on getting connected you legend!`);
+  console.log(`Welldone on getting backend connected you legend!`);
 });
 
 module.exports = knex;
